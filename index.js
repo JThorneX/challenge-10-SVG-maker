@@ -13,6 +13,7 @@ const questions = [
     //     ? true
     //     : console.log("You cannot enter more than 3 characters");
     // },
+    //this doesn't work lmao
   },
   {
     type: "input",
@@ -32,6 +33,7 @@ const questions = [
   },
 ];
 
+//SVG class constructor
 class SVG {
   constructor() {
     this.text = "";
@@ -93,27 +95,28 @@ function init() {
 //       break;
 //   }
 
+//intakes question choices and renders the shape
 function generateSVG(response) {
   if (response.shapes === "Circle") {
     const shape = new SVG();
+    const choiceCircle = new Circle();
+    choiceCircle.setColor(response.shapeColor);
+    shape.setShape(choiceCircle);
     shape.setText(response.text, response.textColor);
-    const newCircle = new Circle();
-    newCircle.setColor(response.shapeColor);
-    shape.setShape(newCircle);
     return shape.render();
   } else if (response.shapes === "Square") {
     const shape = new SVG();
+    const choiceSquare = new Square();
+    choiceSquare.setColor(response.shapeColor);
+    shape.setShape(choiceSquare);
     shape.setText(response.text, response.textColor);
-    const newSquare = new Square();
-    newSquare.setColor(response.shapeColor);
-    shape.setShape(newSquare);
     return shape.render();
   } else {
     const shape = new SVG();
+    const choiceTriangle = new Triangle();
+    choiceTriangle.setColor(response.shapeColor);
+    shape.setShape(choiceTriangle);
     shape.setText(response.text, response.textColor);
-    const newTriangle = new Triangle();
-    newTriangle.setColor(response.shapeColor);
-    shape.setShape(newTriangle);
     return shape.render();
   }
 }
